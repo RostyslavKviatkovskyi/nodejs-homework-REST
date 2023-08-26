@@ -1,5 +1,6 @@
 import { Router } from "express";
-import contactsController from "../../controllers/contacts-controllers.js";
+// import contactsController from "../../controllers/contacts-controllers.js";
+import contactsController from "../../controllers/contacts/index.js";
 import { validateBody } from "../../decorators/index.js";
 import contactsSchemas from "../../schemas/contacts-schemas.js";
 import { isEmptyBody, isValidId } from "../../middlewares/index.js";
