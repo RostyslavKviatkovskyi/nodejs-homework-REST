@@ -2,9 +2,15 @@ import { Router } from "express";
 import * as contactsController from "../../controllers/contacts/index.js";
 import { validateBody } from "../../decorators/index.js";
 import contactsSchemas from "../../schemas/contacts-schemas.js";
-import { isEmptyBody, isValidId } from "../../middlewares/index.js";
+import {
+  authenticate,
+  isEmptyBody,
+  isValidId,
+} from "../../middlewares/index.js";
 
 const router = Router();
+
+router.use(authenticate);
 
 router.get("/", contactsController.getAll);
 
