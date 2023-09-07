@@ -3,6 +3,7 @@ import * as contactsController from "../../controllers/contacts/index.js";
 import { validateBody } from "../../decorators/index.js";
 import contactsSchemas from "../../schemas/contacts-schemas.js";
 import {
+  // upload,
   authenticate,
   isEmptyBody,
   isValidId,
@@ -18,6 +19,7 @@ router.get("/:id", isValidId, contactsController.getById);
 
 router.post(
   "/",
+  // upload.single("avatarURL"),
   isEmptyBody,
   validateBody(contactsSchemas.contactAddSchema),
   contactsController.add
