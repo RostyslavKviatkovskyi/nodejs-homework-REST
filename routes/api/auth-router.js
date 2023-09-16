@@ -19,6 +19,14 @@ authRouter.post(
   authController.signin
 );
 
+authRouter.get("/verify/:verificationToken", authController.verify);
+
+authRouter.post(
+  "/verify",
+  validateBody(userSchemas.userEmailSchema),
+  authController.resendVerifyEmail
+);
+
 authRouter.patch(
   "/avatar",
   upload.single("avatarURL"),
